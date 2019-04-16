@@ -1,0 +1,32 @@
+language: cpp
+
+sudo: false
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode9.4
+
+    - os: osx
+      osx_image: xcode10.2
+
+before_install:
+  - brew update
+  - TAPS_DIR=$(brew --prefix)/Homebrew/Library/Taps
+  - mkdir $TAPS_DIR/decentfoundation
+  - ln -s $(pwd) $TAPS_DIR/decentfoundation/homebrew-dcore
+
+script:
+  # ignore 'Dependency nlohmann/json/nlohmann_json should not use option with-cmake'
+  - brew audit --except-cops=FormulaAudit/Miscellaneous DCore
+  - brew install --build-bottle --verbose --HEAD DCore
+  - brew bottle --root-url=https://dl.bintray.com/decentfoundation/homebrew/develop DCore
+  - sed "s/VERSION/$(brew list --versions DCore | sed 's/.* //')/" descriptor.json.in > descriptor.json
+
+deploy:
+  skip_cleanup: true
+  provider: bintray
+  file: descriptor.json
+  user: rfric
+  key:
+    secure: aaPj12yCcVLRq85euo0DCCfkXakT61YSditc06RD5+Wf0yeiD+P0s3hwGTHvDdmvzjPiaa/mKiNcjSl4r1NPU9j4PzA1lUxVFO0bsWBQE9RvaOlLalPcJgWL1dKSSnAlf4dTpiWZio+7Gh5fEYDsBT+wOu9YHd0/3BwL1MoMj1D3sMzA/BVogPjKY51yw4ph5ok7tVdzvn8uwvrVwuAU+HR8jiHtMowRaSzjhLNVjcSmSXu0xrOOXRK+kHar7FqYSG2b2C0NIGmaz/CmPxQ+fOgXEQc5DTtie5UxYfRM2h9TB4+jgyK1H20nfl91MlF9fFEDQ9U4xDr3tuDodNV4Lyxxd/ZiyMm5sQZfdWuyal4Y4VqVv5p0er5EKBcl87j5IdOR+i887jPOJvDcQ6Z+XKda5Br+CWs87RfSlC11jEBLicluWtTiZ1hJqHPYjRotreTJjIGe29vC01S344jPPkR4jsJeFhaXCSPZ7mV5KBhs65T1GER+So0eT5PleTszldMmycIUQ8+K5ODmZyKJjlp95k4Xa0MpzzWws8gXyfz03nG4iwXDBprFN9WtQA9AFh3DtS1fEb5Nrb/YAm/N2W3D8BiFd8H6zXsvDaEFiEMLnLN11Wt2VRvaBAwYoeW1Roiw7j9CSXhoBUf0yFHn9D864CwFEEGcfyvqgM6cCEw=

@@ -1,0 +1,20 @@
+{
+    "package": {
+        "name": "DCore",
+        "repo": "homebrew",
+        "subject": "decentfoundation"
+    },
+
+    "version": {
+        "name": "VERSION"
+    },
+
+    "publish": false,
+    "files": [
+        {
+            "includePattern": "./(dcore--)(.*\\.bottle\\.tar\\.gz)",
+            "uploadPattern": "develop/DCore-$2",
+            "matrixParams": { "override": 1 }
+        }
+    ]
+}
