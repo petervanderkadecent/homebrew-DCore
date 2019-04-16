@@ -13,7 +13,7 @@
     "files": [
         {
             "includePattern": "./(dcore--)(.*\\.bottle\\.tar\\.gz)",
-            "uploadPattern": "develop/DCore-$2",
+            "uploadPattern": "DCore-$2",
             "matrixParams": { "override": 1 }
         }
     ]
