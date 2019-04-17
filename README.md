@@ -9,5 +9,5 @@ This [Homebrew](http://brew.sh) formula installs the [DCore](https://decent.ch/d
 
 * adjust `tag` and `revision` in DCore.rb formula file
 * push the commit and record `sha256` hashes from build logs
-* adjust bottle `sha256` hashes in formula file
+* adjust bottle `sha256` hashes in formula file and create release tag
 * push the commit and add `[travis skip]` to subject
