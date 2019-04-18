@@ -21,7 +21,10 @@ script:
   - brew audit --except-cops=FormulaAudit/Miscellaneous DCore
   - brew install --build-bottle --verbose DCore
   - brew bottle --root-url=https://dl.bintray.com/decentfoundation/homebrew DCore
-  - sed "s/VERSION/$(brew list --versions DCore | sed 's/.* //')/" descriptor.json.in > descriptor.json
+  - DCORE_VERSION=$(brew list --versions DCore | sed 's/.* //')
+  - sed "s/VERSION/$DCORE_VERSION/" descriptor.json.in > descriptor.json
+  - ./prepare_dist.sh /usr/local/opt/DCore $DCORE_VERSION
+  - pkgbuild --root dist --component-plist decent_pkg.plist DCore.$DCORE_VERSION.pkg
 
 deploy:
   skip_cleanup: true
