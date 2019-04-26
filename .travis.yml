@@ -11,7 +11,7 @@ matrix:
       osx_image: xcode10.2
 
 before_install:
-  - brew update
+  - brew tap nlohmann/json
   - TAPS_DIR=$(brew --prefix)/Homebrew/Library/Taps
   - mkdir $TAPS_DIR/decentfoundation
   - ln -s $(pwd) $TAPS_DIR/decentfoundation/homebrew-dcore
