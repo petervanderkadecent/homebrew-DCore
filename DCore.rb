@@ -2,7 +2,7 @@ class Dcore < Formula
   desc "Fast, powerful and cost-efficient blockchain"
   homepage "https://decent.ch/dcore"
   url "https://github.com/DECENTfoundation/DECENT-Network.git", :using => :git, :tag => "1.3.4", :revision => "9f7547eacfe20d872a188ed0ae2a4c18f424cbed"
-  head "https://github.com/DECENTfoundation/DECENT-Network.git", :branch => "develop"
+  head "https://github.com/DECENTfoundation/DECENT-Network.git", :branch => "develop", :shallow => false
 
   bottle do
     root_url "https://dl.bintray.com/decentfoundation/homebrew"
