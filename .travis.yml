@@ -22,7 +22,7 @@ script:
   - brew install --build-bottle --verbose DCore
   - brew bottle --root-url=https://dl.bintray.com/decentfoundation/homebrew --skip-relocation DCore
   - DCORE_VERSION=$(brew list --versions DCore | sed 's/.* //')
-  - sed "s/VERSION/$DCORE_VERSION/" descriptor.json.in > descriptor.json
+  - sed "s/VERSION/$DCORE_VERSION/" .bintray.json > descriptor.json
   - ./prepare_dist.sh /usr/local/opt/DCore $DCORE_VERSION
   - pkgbuild --root dist --component-plist decent_pkg.plist DCore.$DCORE_VERSION.pkg
 
