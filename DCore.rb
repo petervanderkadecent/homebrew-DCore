@@ -1,14 +1,14 @@
 class Dcore < Formula
   desc "Fast, powerful and cost-efficient blockchain"
   homepage "https://decent.ch/dcore"
-  url "https://github.com/DECENTfoundation/DECENT-Network.git", :using => :git, :tag => "1.3.4", :revision => "9f7547eacfe20d872a188ed0ae2a4c18f424cbed"
+  url "https://github.com/DECENTfoundation/DECENT-Network.git", :using => :git, :tag => "1.4.0", :revision => "ff07d73affe4a60ffc320780f94a4f096e1d5c80"
   head "https://github.com/DECENTfoundation/DECENT-Network.git", :branch => "develop", :shallow => false
 
   bottle do
     root_url "https://dl.bintray.com/decentfoundation/homebrew"
     cellar :any_skip_relocation
     sha256 "0000000000000000000000000000000000000000000000000000000000000000" => :mojave
-    sha256 "5d4a20f45f16dd0f4a031cc10bf9e10514374e10fdb1894f49ef639bb3605186" => :high_sierra
+    sha256 "0000000000000000000000000000000000000000000000000000000000000000" => :high_sierra
   end
 
   depends_on "autoconf" => :build
