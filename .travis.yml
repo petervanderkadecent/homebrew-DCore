@@ -18,13 +18,11 @@ before_install:
 
 script:
   # ignore 'Dependency nlohmann/json/nlohmann_json should not use option with-cmake'
-  - brew audit --except-cops=FormulaAudit/Miscellaneous DCore
-  - brew install --build-bottle --verbose DCore
-  - brew bottle --root-url=https://dl.bintray.com/decentfoundation/homebrew --skip-relocation DCore
-  - DCORE_VERSION=$(brew list --versions DCore | sed 's/.* //')
+  - brew audit --except-cops=FormulaAudit/Miscellaneous dcore
+  - brew install --build-bottle --verbose dcore
+  - brew bottle --root-url=https://dl.bintray.com/decentfoundation/homebrew --skip-relocation dcore
+  - DCORE_VERSION=$(brew list --versions dcore | sed 's/.* //')
   - sed "s/VERSION/$DCORE_VERSION/" .bintray.json > descriptor.json
-  - ./prepare_dist.sh /usr/local/opt/DCore $DCORE_VERSION
-  - pkgbuild --root dist --component-plist decent_pkg.plist DCore.$DCORE_VERSION.pkg
 
 deploy:
   skip_cleanup: true
