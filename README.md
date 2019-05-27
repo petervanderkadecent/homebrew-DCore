@@ -3,7 +3,7 @@
 This [Homebrew](http://brew.sh) formula installs the [DCore](https://decent.ch/dcore) node to your system. Just execute in console:
 
     brew tap decentfoundation/DCore
-    brew install DCore
+    brew install dcore
 
 ## Homebrew bottle update workflow
 
