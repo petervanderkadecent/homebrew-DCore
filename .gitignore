@@ -1,5 +1,2 @@
 descriptor.json
-dist/
-
-DCore-*.bottle.tar.gz
-Dcore.*.pkg
+dcore-*.bottle.tar.gz
