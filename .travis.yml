@@ -10,11 +10,21 @@ matrix:
     - os: osx
       osx_image: xcode10.2
 
+cache:
+  directories:
+    - /usr/local/Cellar/cryptopp
+    - $HOME/Library/Caches/Homebrew
+
+before_cache:
+  - brew cleanup && rm -rf $HOME/Library/Caches/Homebrew/dcore--git
+
 before_install:
   - brew tap nlohmann/json
+  - test -L /usr/local/opt/cryptopp || test ! -d /usr/local/Cellar/cryptopp || brew link cryptopp || true;
+  - test ! -L /usr/local/opt/cryptopp || brew upgrade cryptopp || true;
   - TAPS_DIR=$(brew --prefix)/Homebrew/Library/Taps
   - mkdir $TAPS_DIR/decentfoundation
-  - ln -s $(pwd) $TAPS_DIR/decentfoundation/homebrew-dcore
+  - ln -s $TRAVIS_BUILD_DIR $TAPS_DIR/decentfoundation/homebrew-dcore
 
 script:
   # ignore 'Dependency nlohmann/json/nlohmann_json should not use option with-cmake'
