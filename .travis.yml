@@ -30,7 +30,7 @@ script:
   # ignore 'Dependency nlohmann/json/nlohmann_json should not use option with-cmake'
   - brew audit --except-cops=FormulaAudit/Miscellaneous dcore
   - brew install --build-bottle --verbose dcore
-  - brew bottle --root-url=https://dl.bintray.com/decentfoundation/homebrew --skip-relocation dcore
+  - brew bottle --root-url=https://dl.bintray.com/decentfoundation/homebrew --skip-relocation --no-rebuild dcore
   - DCORE_VERSION=$(brew list --versions dcore | sed 's/.* //')
   - sed "s/VERSION/$DCORE_VERSION/" .bintray.json > descriptor.json
 
