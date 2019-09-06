@@ -7,8 +7,8 @@ class Dcore < Formula
   bottle do
     root_url "https://dl.bintray.com/decentfoundation/homebrew"
     cellar :any_skip_relocation
-    sha256 "0000000000000000000000000000000000000000000000000000000000000000" => :mojave
-    sha256 "0000000000000000000000000000000000000000000000000000000000000000" => :high_sierra
+    sha256 "a82e51b7b153bf6523c7261ff113acb97a262926ad2693702354818f8b5d8ac5" => :mojave
+    sha256 "476d9503c4edbb9c76ac86fe8b6a67e716188ace6b1135461bdd0a1d0892a1f6" => :high_sierra
   end
 
   depends_on "autoconf" => :build
