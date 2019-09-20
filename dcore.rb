@@ -20,7 +20,7 @@ class Dcore < Formula
   depends_on "nlohmann/json/nlohmann_json" => ["with-cmake", :build]
   depends_on "cryptopp"
   depends_on "ipfs"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pbc"
   depends_on "qt"
   depends_on "readline"
