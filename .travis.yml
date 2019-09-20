@@ -29,7 +29,8 @@ before_install:
 script:
   # ignore 'Dependency nlohmann/json/nlohmann_json should not use option with-cmake'
   - brew audit --except-cops=FormulaAudit/Miscellaneous dcore
-  - brew install --build-bottle --verbose dcore
+  - if [ -z "$TRAVIS_TAG" ]; then DCORE_HEAD="--HEAD"; fi
+  - brew install $DCORE_HEAD --build-bottle --verbose dcore
   - brew bottle --root-url=https://dl.bintray.com/decentfoundation/homebrew --skip-relocation --no-rebuild dcore
   - DCORE_VERSION=$(brew list --versions dcore | sed 's/.* //')
   - sed "s/VERSION/$DCORE_VERSION/" .bintray.json > descriptor.json
