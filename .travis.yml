@@ -10,6 +10,9 @@ matrix:
     - os: osx
       osx_image: xcode10.2
 
+    - os: osx
+      osx_image: xcode11
+
 cache:
   directories:
     - /usr/local/Cellar/cryptopp
