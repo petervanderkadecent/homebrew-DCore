@@ -1,4 +1,4 @@
-# DCore Homebrew Formula
+# DCore Homebrew Formula [![Build Status](https://travis-ci.org/DECENTfoundation/homebrew-DCore.svg?branch=master)](https://travis-ci.org/DECENTfoundation/homebrew-DCore)
 
 This [Homebrew](http://brew.sh) formula installs the [DCore](https://decent.ch/dcore) node to your system. Just execute in console:
 
