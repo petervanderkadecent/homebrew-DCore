@@ -8,7 +8,6 @@ This [Homebrew](http://brew.sh) formula installs the [DCore](https://decent.ch/d
 ## Homebrew bottle update workflow
 
 * adjust `tag` and `revision` in dcore.rb formula file and push the commit
-* create and push release tag (e.g. 1.4.0)
-* record `sha256` hashes from Travis build logs
+* publish release and record `sha256` hashes from Travis build log
 * adjust bottle `sha256` hashes in dcore.rb formula file
-* push the commit (use `[travis skip]` in subject) 
+* push the commit (use `[travis skip]` in subject)
