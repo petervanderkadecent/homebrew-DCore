@@ -10,12 +10,9 @@ class Dcore < Formula
     sha256 "3159627a21430bcff25b08e3078e6a07cea11d5c334a677e2038da4d6e40097c" => :mojave
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "libtool" => :build
   depends_on "nlohmann/json/nlohmann_json" => ["with-cmake", :build]
   depends_on "cryptopp"
   depends_on "ipfs"
