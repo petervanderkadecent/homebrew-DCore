@@ -19,7 +19,6 @@ before_cache:
   - brew cleanup && rm -rf $HOME/Library/Caches/Homebrew/dcore--git
 
 before_install:
-  - brew tap nlohmann/json
   - test -L /usr/local/opt/cryptopp || test ! -d /usr/local/Cellar/cryptopp || brew link cryptopp || true;
   - test ! -L /usr/local/opt/cryptopp || brew upgrade cryptopp || true;
   - TAPS_DIR=$(brew --prefix)/Homebrew/Library/Taps

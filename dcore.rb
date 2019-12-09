@@ -13,7 +13,7 @@ class Dcore < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "nlohmann/json/nlohmann_json" => ["with-cmake", :build]
+  depends_on "nlohmann-json" => :build
   depends_on "cryptopp"
   depends_on "ipfs"
   depends_on "openssl@1.1"
